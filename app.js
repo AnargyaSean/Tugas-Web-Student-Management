@@ -1,19 +1,19 @@
 const initialStudents = [
-  { nim: "231001", name: "Naufal Hidayat", major: "Informatika", email: "naufal@mail.com" },
-  { nim: "231002", name: "Alya Puspitasari", major: "Sistem Informasi", email: "alya@mail.com" },
-  { nim: "231003", name: "Galih Wicaksono", major: "Teknik Komputer", email: "galih@mail.com" },
-  { nim: "231004", name: "Citra Maharani", major: "Manajemen", email: "citra@mail.com" },
-  { nim: "231005", name: "Bagas Wijaya", major: "Informatika", email: "bagas@mail.com" },
-  { nim: "231006", name: "Nadia Oktaviani", major: "Sistem Informasi", email: "nadia@mail.com" },
-  { nim: "231007", name: "Ilham Kurniawan", major: "Teknik Komputer", email: "ilham@mail.com" },
-  { nim: "231008", name: "Vina Amelia", major: "Manajemen", email: "vina@mail.com" },
-  { nim: "231009", name: "Raka Prabowo", major: "Informatika", email: "raka@mail.com" },
-  { nim: "231010", name: "Laras Wulandari", major: "Sistem Informasi", email: "laras@mail.com" },
-  { nim: "231011", name: "Farhan Akbar", major: "Teknik Komputer", email: "farhan@mail.com" },
-  { nim: "231012", name: "Dinda Aprilia", major: "Manajemen", email: "dinda@mail.com" },
-  { nim: "231013", name: "Reza Maulana", major: "Informatika", email: "reza@mail.com" },
-  { nim: "231014", name: "Tiara Fitriani", major: "Sistem Informasi", email: "tiara@mail.com" },
-  { nim: "231015", name: "Aditiya Nugroho", major: "Teknik Komputer", email: "aditiya@mail.com" }
+  { nrp: "2310010001", name: "Naufal Hidayat", major: "Informatika", email: "naufal@mail.com" },
+  { nrp: "2310020002", name: "Alya Puspitasari", major: "Sistem Informasi", email: "alya@mail.com" },
+  { nrp: "2310030003", name: "Galih Wicaksono", major: "Teknik Komputer", email: "galih@mail.com" },
+  { nrp: "2310040004", name: "Citra Maharani", major: "Teknologi Informasi", email: "citra@mail.com" },
+  { nrp: "2310050005", name: "Bagas Wijaya", major: "Informatika", email: "bagas@mail.com" },
+  { nrp: "2310060006", name: "Nadia Oktaviani", major: "Sistem Informasi", email: "nadia@mail.com" },
+  { nrp: "2310070007", name: "Ilham Kurniawan", major: "Teknik Komputer", email: "ilham@mail.com" },
+  { nrp: "2310080008", name: "Vina Amelia", major: "Teknologi Informasi", email: "vina@mail.com" },
+  { nrp: "2310090009", name: "Raka Prabowo", major: "Informatika", email: "raka@mail.com" },
+  { nrp: "2310100010", name: "Laras Wulandari", major: "Sistem Informasi", email: "laras@mail.com" },
+  { nrp: "2310110011", name: "Farhan Akbar", major: "Teknik Komputer", email: "farhan@mail.com" },
+  { nrp: "2310120012", name: "Dinda Aprilia", major: "Teknologi Informasi", email: "dinda@mail.com" },
+  { nrp: "2310130013", name: "Reza Maulana", major: "Informatika", email: "reza@mail.com" },
+  { nrp: "2310140014", name: "Tiara Fitriani", major: "Sistem Informasi", email: "tiara@mail.com" },
+  { nrp: "2310150015", name: "Aditiya Nugroho", major: "Teknik Komputer", email: "aditiya@mail.com" }
 ];
 
 const pageSize = 5;
@@ -27,7 +27,7 @@ const submitButton = document.querySelector("#submit-button");
 const cancelButton = document.querySelector("#cancel-button");
 let students = [...initialStudents];
 let currentPage = 1;
-let editingNim = null;
+let editingNrp = null;
 
 function createIcon(path) {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -59,7 +59,7 @@ function createButton(label, className, iconPath, onClick) {
 function getFilteredStudents() {
   const query = searchInput.value.trim().toLocaleLowerCase("id");
   return students.filter((student) =>
-    [student.nim, student.name, student.major, student.email]
+    [student.nrp, student.name, student.major, student.email]
       .some((value) => value.toLocaleLowerCase("id").includes(query))
   );
 }
@@ -79,11 +79,11 @@ function renderStudents() {
     major.textContent = student.major;
     actions.className = "row-actions";
     actions.append(
-      createButton("Edit " + student.name, "icon-button edit-button", "M16 4l4 4L9 19l-5 1 1-5L16 4Zm-2 2 4 4", () => editStudent(student.nim)),
-      createButton("Hapus " + student.name, "icon-button delete-button", "M3 6h18M8 6V4h8v2m3 0-1 14H6L5 6m4 4v6m6-6v6", () => deleteStudent(student.nim))
+      createButton("Edit " + student.name, "icon-button edit-button", "M16 4l4 4L9 19l-5 1 1-5L16 4Zm-2 2 4 4", () => editStudent(student.nrp)),
+      createButton("Hapus " + student.name, "icon-button delete-button", "M3 6h18M8 6V4h8v2m3 0-1 14H6L5 6m4 4v6m6-6v6", () => deleteStudent(student.nrp))
     );
     row.append(...[
-      String(start + index + 1), student.nim, student.name, major, student.email, actions
+      String(start + index + 1), student.nrp, student.name, major, student.email, actions
     ].map(createCell));
     list.append(row);
   });
@@ -122,22 +122,22 @@ function changePage(page) {
 
 function resetForm() {
   form.reset();
-  editingNim = null;
+  editingNrp = null;
   submitButton.querySelector("span").textContent = "Simpan";
 }
 
-function editStudent(nim) {
-  const student = students.find((item) => item.nim === nim);
+function editStudent(nrp) {
+  const student = students.find((item) => item.nrp === nrp);
   if (!student) return;
-  editingNim = nim;
+  editingNrp = nrp;
   Object.entries(student).forEach(([key, value]) => { form.elements[key].value = value; });
   submitButton.querySelector("span").textContent = "Perbarui";
   form.elements.name.focus();
 }
 
-function deleteStudent(nim) {
-  students = students.filter((student) => student.nim !== nim);
-  if (editingNim === nim) resetForm();
+function deleteStudent(nrp) {
+  students = students.filter((student) => student.nrp !== nrp);
+  if (editingNrp === nrp) resetForm();
   renderStudents();
 }
 
@@ -145,20 +145,20 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   if (!form.reportValidity()) return;
   const student = {
-    nim: form.elements.nim.value.trim(),
+    nrp: form.elements.nrp.value.trim(),
     name: form.elements.name.value.trim(),
     major: form.elements.major.value,
     email: form.elements.email.value.trim()
   };
-  if (students.some((item) => item.nim === student.nim && item.nim !== editingNim)) {
-    const nimInput = form.elements.nim;
-    nimInput.setCustomValidity("NIM sudah terdaftar.");
-    nimInput.reportValidity();
-    nimInput.addEventListener("input", () => nimInput.setCustomValidity(""), { once: true });
+  if (students.some((item) => item.nrp === student.nrp && item.nrp !== editingNrp)) {
+    const nrpInput = form.elements.nrp;
+    nrpInput.setCustomValidity("NRP sudah terdaftar.");
+    nrpInput.reportValidity();
+    nrpInput.addEventListener("input", () => nrpInput.setCustomValidity(""), { once: true });
     return;
   }
-  if (editingNim) {
-    students = students.map((item) => item.nim === editingNim ? student : item);
+  if (editingNrp) {
+    students = students.map((item) => item.nrp === editingNrp ? student : item);
   } else {
     students.push(student);
     currentPage = Math.ceil(getFilteredStudents().length / pageSize) || 1;
@@ -168,7 +168,7 @@ form.addEventListener("submit", (event) => {
 });
 
 form.addEventListener("reset", () => {
-  editingNim = null;
+  editingNrp = null;
   submitButton.querySelector("span").textContent = "Simpan";
 });
 cancelButton.addEventListener("click", resetForm);

@@ -36,8 +36,8 @@
       </div>
 
       <form id="student-form">
-        <label for="student-id">NIM <span>*</span></label>
-        <input id="student-id" name="nim" type="text" placeholder="Contoh: 231001" required>
+        <label for="student-id">NRP <span>*</span></label>
+        <input id="student-id" name="nrp" type="text" inputmode="numeric" minlength="10" pattern="[0-9]{10,}" placeholder="Contoh: 5025251194" title="NRP harus berisi minimal 10 angka." required>
 
         <label for="student-name">NAMA LENGKAP <span>*</span></label>
         <input id="student-name" name="name" type="text" placeholder="Masukkan nama lengkap" required>
@@ -48,7 +48,7 @@
           <option>Informatika</option>
           <option>Sistem Informasi</option>
           <option>Teknik Komputer</option>
-          <option>Manajemen</option>
+          <option>Teknologi Informasi</option>
         </select>
 
         <label for="student-email">EMAIL <span>*</span></label>
@@ -88,7 +88,7 @@
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>NO</th><th>NIM</th><th>NAMA</th><th>JURUSAN</th><th>EMAIL</th><th>AKSI</th></tr>
+            <tr><th>NO</th><th>NRP</th><th>NAMA</th><th>JURUSAN</th><th>EMAIL</th><th>AKSI</th></tr>
           </thead>
           <tbody id="student-list"></tbody>
         </table>

@@ -85,7 +85,7 @@ td:first-child, td:nth-child(2), td:nth-child(5) { color: #718198; }
 .major-tag { display: inline-block; padding: 4px 9px; border-radius: 12px; color: #1769f5; background: #eff5ff; font-size: 9px; }
 .major-tag.sistem-informasi { color: #5145e5; background: #f0efff; }
 .major-tag.teknik-komputer { color: #07966a; background: #e9fbf3; }
-.major-tag.manajemen { color: #c66a0a; background: #fff6e5; }
+.major-tag.teknologi-informasi { color: #c66a0a; background: #fff6e5; }
 .row-actions { display: inline-flex; align-items: center; gap: 11px; }
 .icon-button { display: inline-grid; width: 17px; height: 20px; place-items: center; padding: 0; border: 0; color: #77879d; background: transparent; cursor: pointer; }
 .icon-button:hover { color: var(--blue); }
