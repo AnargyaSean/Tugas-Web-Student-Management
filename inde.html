@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal manajemen data mahasiswa">
+  <title>Student Hub - Manajemen Mahasiswa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Student Hub, beranda">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="m3 9 9-5 9 5-9 5-9-5Zm4 2.2v4.2c2.8 2.2 7.2 2.2 10 0v-4.2M21 9v6"/></svg>
+      </span>
+      <span class="brand-copy"><strong>Student <span>Hub</span></strong><small>MANAGEMENT PORTAL</small></span>
+    </a>
+    <nav class="navigation" aria-label="Navigasi utama">
+      <a href="#home">Home</a>
+      <a class="nav-active" href="#students"><span></span>Students</a>
+      <a href="#about">About</a>
+      <div class="admin-profile"><span class="avatar">AD<i></i></span><span>Admin</span></div>
+    </nav>
+  </header>
+
+  <main class="dashboard" id="home">
+    <section class="card form-card" aria-labelledby="form-title">
+      <div class="section-heading form-heading">
+        <span class="heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2m7-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm10-3v6m-3-3h6"/></svg>
+        </span>
+        <div>
+          <h1 id="form-title">Form Data Mahasiswa</h1>
+          <p>Tambah &amp; sesuaikan profil mahasiswa</p>
+        </div>
+      </div>
+
+      <form id="student-form">
+        <label for="student-id">NIM <span>*</span></label>
+        <input id="student-id" name="nim" type="text" placeholder="Contoh: 231001" required>
+
+        <label for="student-name">NAMA LENGKAP <span>*</span></label>
+        <input id="student-name" name="name" type="text" placeholder="Masukkan nama lengkap" required>
+
+        <label for="student-major">JURUSAN <span>*</span></label>
+        <select id="student-major" name="major" required>
+          <option value="" disabled selected>Pilih Jurusan</option>
+          <option>Informatika</option>
+          <option>Sistem Informasi</option>
+          <option>Teknik Komputer</option>
+          <option>Manajemen</option>
+        </select>
+
+        <label for="student-email">EMAIL <span>*</span></label>
+        <input id="student-email" name="email" type="email" placeholder="nama@domain.com" required>
+
+        <div class="form-actions">
+          <button class="button button-primary" type="submit" id="submit-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2ZM17 21v-8H7v8M7 3v5h8"/></svg>
+            <span>Simpan</span>
+          </button>
+          <div class="secondary-actions">
+            <button class="button button-secondary" type="button" id="cancel-button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg>
+              Batal
+            </button>
+            <button class="button button-reset" type="reset">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.6 9a7 7 0 0 1 11.6-2L20 12M4 12l2.8 5a7 7 0 0 0 11.6-2"/></svg>
+              Reset
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="card students-card" id="students" aria-labelledby="students-title">
+      <div class="list-toolbar">
+        <div class="list-title">
+          <h2 id="students-title">Data Mahasiswa</h2>
+          <span class="active-count"><i></i><span id="active-count">0 Mahasiswa Aktif</span></span>
+        </div>
+        <label class="search-box" for="search-input">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+          <input id="search-input" type="search" placeholder="Cari mahasiswa..." autocomplete="off">
+        </label>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>NO</th><th>NIM</th><th>NAMA</th><th>JURUSAN</th><th>EMAIL</th><th>AKSI</th></tr>
+          </thead>
+          <tbody id="student-list"></tbody>
+        </table>
+        <p class="empty-state" id="empty-state" hidden>Data mahasiswa tidak ditemukan.</p>
+      </div>
+
+      <div class="list-footer">
+        <nav class="pagination" id="pagination" aria-label="Halaman data mahasiswa"></nav>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
